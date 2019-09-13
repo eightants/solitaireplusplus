@@ -320,6 +320,11 @@ int main() {
 		}
 		step++;
 	}
+
+	cout << "---------------" << endl;
+	cout << " YOU WIN!" << endl;
+	cout << "---------------" << endl;
+	return 0;
 	
 	
 	// MECHANICS
