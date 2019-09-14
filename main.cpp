@@ -210,6 +210,9 @@ int main() {
 				chosen = md.v[md.ind + md.showing - 1];
 				// compares with table
 				for (int j = 0; j < 7; j++) {
+					if (chosen.gNum() == 13 && table[j].size() == 0) {
+						potential.push_back(j);
+					}
 					// cout << "col " << chosen.gColor() << chosen.gNum() << " vs ";
 					// cout << "col " << table[j][table[j].size() - 1].gColor() << table[j][table[j].size() - 1].gNum() << endl;
 					if ((table[j][table[j].size() - 1].gNum() == (chosen.gNum() + 1)) && (chosen.gColor() != table[j][table[j].size() - 1].gColor())) {
@@ -219,7 +222,7 @@ int main() {
 				// compares against foundation decks
 				for (int j = 0; j < 4; j++) {
 					if (foundation[j].size() > 0) {
-						if ((foundation[j][foundation[j].size() - 1].gSuite() == chosen.gSuite()) && (foundation[j][foundation[j].size() - 1].gNum() == (chosen.gNum() + 1))) {
+						if ((foundation[j][foundation[j].size() - 1].gSuite() == chosen.gSuite()) && ((foundation[j][foundation[j].size() - 1].gNum() + 1) == (chosen.gNum()))) {
 							potential.push_back(j + 10);
 						}
 					} else if (chosen.gNum() == 1) {
